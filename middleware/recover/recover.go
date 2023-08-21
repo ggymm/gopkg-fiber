@@ -4,8 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/pkg/errors"
 
-	"github.com/ggymm/gopkg/constant"
-	"github.com/ggymm/gopkg/log"
+	"github.com/ggymm/gopkg-fiber/log"
 )
 
 func NewRecover() fiber.Handler {
@@ -14,10 +13,10 @@ func NewRecover() fiber.Handler {
 		defer func() {
 			if r := recover(); r != nil {
 
-				log.Error().Err(errors.WithStack(r.(error))).Msg(constant.ServerPanic)
+				log.Error().Err(errors.WithStack(r.(error))).Msg("服务器内部错误")
 
 				err = c.Status(fiber.StatusInternalServerError).JSON(fiber.Map{
-					"msg":     constant.ServerPanic,
+					"msg":     "服务器内部错误",
 					"success": false,
 				})
 			}

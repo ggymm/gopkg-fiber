@@ -6,8 +6,7 @@ import (
 
 	"github.com/gofiber/fiber/v2"
 
-	"github.com/ggymm/gopkg/constant"
-	"github.com/ggymm/gopkg/log"
+	"github.com/ggymm/gopkg-fiber/log"
 )
 
 func needLog(contentType []byte) bool {
@@ -70,7 +69,7 @@ func NewLogger() fiber.Handler {
 
 			// 响应参数
 			Str("respBody", fmt.Sprintf("%s", respBody)).
-			Msg(constant.APITrace)
+			Msg("APITrace")
 
 		return nil
 	}
