@@ -13,12 +13,11 @@ func Login(id int64, ctx *fiber.Ctx, config ...auth.LoginConfig) (string, error)
 	if auth.NotInit() {
 		return "", errors.New(auth.ErrAuthNotInit)
 	}
-	a := auth.Auth
 
 	// 获取配置
 	var cfg = auth.LoginConfig{
 		Device:  "web",
-		Timeout: a.GetDefaultTimeout(),
+		Timeout: auth.GetDefaultTimeout(),
 	}
 	if len(config) > 0 {
 		cfg = config[0]
@@ -32,7 +31,7 @@ func Login(id int64, ctx *fiber.Ctx, config ...auth.LoginConfig) (string, error)
 
 	// 写入 cookie
 	cookie := fasthttp.AcquireCookie()
-	cookie.SetKey(a.GetTokenName())
+	cookie.SetKey(auth.GetTokenName())
 	cookie.SetValue(token)
 	cookie.SetPath("/")
 	// cookie.SetDomain(ctx.Hostname()) // 会自动设置
@@ -48,7 +47,7 @@ func Login(id int64, ctx *fiber.Ctx, config ...auth.LoginConfig) (string, error)
 	fasthttp.ReleaseCookie(cookie)
 
 	// 写入 response header
-	ctx.Response().Header.Set(a.GetTokenName(), token)
+	ctx.Response().Header.Set(auth.GetTokenName(), token)
 	return token, nil
 }
 
@@ -56,8 +55,7 @@ func Check(ctx *fiber.Ctx) (bool, error) {
 	if auth.NotInit() {
 		return false, errors.New(auth.ErrAuthNotInit)
 	}
-	a := auth.Auth
-	tokenName := a.GetTokenName()
+	tokenName := auth.GetTokenName()
 
 	// 从请求体中获取 token
 	token := ctx.Get(tokenName)
@@ -72,15 +70,14 @@ func Check(ctx *fiber.Ctx) (bool, error) {
 		token = ctx.Cookies(tokenName)
 	}
 
-	return a.CheckToken(token)
+	return auth.Check(token)
 }
 
 func GetSession(ctx *fiber.Ctx) (interface{}, error) {
 	if auth.NotInit() {
 		return nil, errors.New(auth.ErrAuthNotInit)
 	}
-	a := auth.Auth
-	tokenName := a.GetTokenName()
+	tokenName := auth.GetTokenName()
 
 	// 从请求体中获取 token
 	token := ctx.Get(tokenName)
@@ -96,9 +93,16 @@ func GetSession(ctx *fiber.Ctx) (interface{}, error) {
 	}
 
 	// 获取 session
-	data, err := a.GetSessionData(token)
+	data, err := auth.GetSession(token)
 	if err != nil {
 		return nil, err
 	}
 	return data, nil
+}
+
+func SaveSession(id int64, value interface{}) error {
+	if auth.NotInit() {
+		return errors.New(auth.ErrAuthNotInit)
+	}
+	return auth.SaveSession(id, value)
 }

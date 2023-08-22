@@ -3,7 +3,7 @@ module github.com/ggymm/gopkg-fiber
 go 1.21
 
 require (
-	github.com/ggymm/gopkg v1.0.6
+	github.com/ggymm/gopkg v1.0.7
 	github.com/gofiber/fiber/v2 v2.48.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.30.0
@@ -16,7 +16,7 @@ require (
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
-	github.com/google/uuid v1.3.0 // indirect
+	github.com/google/uuid v1.3.1 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
 	github.com/kr/pretty v0.3.1 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
