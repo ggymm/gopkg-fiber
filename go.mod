@@ -20,12 +20,13 @@ require (
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/google/uuid v1.3.1 // indirect
 	github.com/klauspost/compress v1.16.7 // indirect
-	github.com/kr/pretty v0.3.1 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
 	github.com/nutsdb/nutsdb v0.14.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
+	github.com/rogpeppe/go-internal v1.9.0 // indirect
 	github.com/tidwall/btree v1.6.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
