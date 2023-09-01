@@ -3,15 +3,17 @@ module github.com/ggymm/gopkg-fiber
 go 1.21
 
 require (
-	github.com/ggymm/gopkg v1.0.7
-	github.com/gofiber/fiber/v2 v2.48.0
+	github.com/ggymm/gopkg v1.1.0
+	github.com/gofiber/fiber/v2 v2.49.0
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.30.0
-	github.com/valyala/fasthttp v1.48.0
+	github.com/valyala/fasthttp v1.49.0
 )
 
 require (
 	github.com/andybalholm/brotli v1.0.5 // indirect
+	github.com/antlabs/stl v0.0.1 // indirect
+	github.com/antlabs/timer v0.0.11 // indirect
 	github.com/bwmarrin/snowflake v0.3.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/goccy/go-json v0.10.2 // indirect
@@ -22,7 +24,7 @@ require (
 	github.com/mattn/go-colorable v0.1.13 // indirect
 	github.com/mattn/go-isatty v0.0.19 // indirect
 	github.com/mattn/go-runewidth v0.0.15 // indirect
-	github.com/nutsdb/nutsdb v0.13.1 // indirect
+	github.com/nutsdb/nutsdb v0.14.0 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/tidwall/btree v1.6.0 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect

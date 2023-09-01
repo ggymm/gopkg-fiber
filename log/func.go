@@ -3,47 +3,47 @@ package log
 import (
 	"github.com/rs/zerolog"
 
-	"github.com/ggymm/gopkg/log"
+	"github.com/ggymm/gopkg/logger"
 )
 
 func autoInit() {
 	if !isInit {
 		// 手动初始化
-		log.InitCustom()
+		logger.InitCustom()
 	}
 }
 
 func Trace() *zerolog.Event {
 	autoInit()
-	return logger.Trace()
+	return log.Trace()
 }
 
 func Debug() *zerolog.Event {
 	autoInit()
-	return logger.Debug()
+	return log.Debug()
 }
 
 func Info() *zerolog.Event {
 	autoInit()
-	return logger.Info()
+	return log.Info()
 }
 
 func Warn() *zerolog.Event {
 	autoInit()
-	return logger.Warn()
+	return log.Warn()
 }
 
 func Error() *zerolog.Event {
 	autoInit()
-	return logger.Error().Stack()
+	return log.Error().Stack()
 }
 
 func Fatal() *zerolog.Event {
 	autoInit()
-	return logger.Fatal()
+	return log.Fatal()
 }
 
 func Panic() *zerolog.Event {
 	autoInit()
-	return logger.Panic().Stack()
+	return log.Panic().Stack()
 }
