@@ -12,7 +12,7 @@ import (
 type Result struct {
 	Msg     string      `json:"msg,omitempty"`
 	Data    interface{} `json:"data,omitempty"`
-	Success bool        `json:"success,omitempty"`
+	Success bool        `json:"success"`
 }
 
 func Error(msg string) (r Result) {
