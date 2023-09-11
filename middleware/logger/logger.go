@@ -28,11 +28,11 @@ func needLog(contentType []byte) bool {
 }
 
 func NewLogger() fiber.Handler {
-	return func(c *fiber.Ctx) error {
+	return func(ctx *fiber.Ctx) error {
 		start := time.Now()
 
 		// next middleware
-		if err := c.Next(); err != nil {
+		if err := ctx.Next(); err != nil {
 			return err
 		}
 
@@ -45,22 +45,22 @@ func NewLogger() fiber.Handler {
 
 		// 判断请求类型 是否在 contentTypes 中
 
-		if needLog(c.Request().Header.ContentType()) {
-			params = c.Queries()
-			reqBody = c.Request().Body()
+		if needLog(ctx.Request().Header.ContentType()) {
+			params = ctx.Queries()
+			reqBody = ctx.Request().Body()
 		}
 
 		var respBody []byte
-		if needLog(c.Response().Header.ContentType()) {
-			respBody = c.Response().Body()
+		if needLog(ctx.Response().Header.ContentType()) {
+			respBody = ctx.Response().Body()
 		}
 
 		// 记录请求日志
 		log.Info().
 			// 请求基本参数
-			Str("ip", c.IP()).
-			Str("path", c.Path()).
-			Str("method", c.Method()).
+			Str("ip", ctx.IP()).
+			Str("path", ctx.Path()).
+			Str("method", ctx.Method()).
 			Str("costTime", costTime).
 
 			// 请求参数

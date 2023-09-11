@@ -30,20 +30,20 @@ func Success(data interface{}) (r Result) {
 type Api struct {
 }
 
-func (a *Api) Error(c *fiber.Ctx, status int, msg string) error {
-	return c.Status(status).JSON(Error(msg))
+func (a *Api) Error(ctx *fiber.Ctx, status int, msg string) error {
+	return ctx.Status(status).JSON(Error(msg))
 }
 
-func (a *Api) Error400(c *fiber.Ctx, err error) error {
+func (a *Api) Error400(ctx *fiber.Ctx, err error) error {
 	log.Error().Err(errors.WithStack(err)).Msg("APITraceError400")
-	return a.Error(c, http.StatusBadRequest, err.Error())
+	return a.Error(ctx, http.StatusBadRequest, err.Error())
 }
 
-func (a *Api) Error500(c *fiber.Ctx, err error) error {
+func (a *Api) Error500(ctx *fiber.Ctx, err error) error {
 	log.Error().Err(errors.WithStack(err)).Msg("APITraceError500")
-	return a.Error(c, http.StatusInternalServerError, err.Error())
+	return a.Error(ctx, http.StatusInternalServerError, err.Error())
 }
 
-func (a *Api) Success(c *fiber.Ctx, data interface{}) error {
-	return c.JSON(Success(data))
+func (a *Api) Success(ctx *fiber.Ctx, data interface{}) error {
+	return ctx.JSON(Success(data))
 }
