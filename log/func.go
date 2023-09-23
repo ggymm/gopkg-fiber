@@ -9,7 +9,7 @@ import (
 func autoInit() {
 	if !isInit {
 		// 手动初始化
-		logger.InitCustom()
+		logger.Init()
 	}
 }
 

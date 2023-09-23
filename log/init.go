@@ -11,5 +11,5 @@ var log zerolog.Logger
 
 func Init(filename string) {
 	isInit = true
-	log = logger.InitCustom(filename)
+	log = logger.Init(filename)
 }

@@ -5,7 +5,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/valyala/fasthttp"
 
-	"github.com/ggymm/gopkg/auth"
+	auth "github.com/ggymm/gopkg-auth"
 	"github.com/ggymm/gopkg/utils"
 )
 
