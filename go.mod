@@ -5,10 +5,10 @@ go 1.21
 require (
 	github.com/ggymm/gopkg v1.1.1
 	github.com/ggymm/gopkg-auth v1.0.2
-	github.com/gofiber/fiber/v2 v2.49.0
+	github.com/gofiber/fiber/v2 v2.49.2
 	github.com/pkg/errors v0.9.1
 	github.com/rs/zerolog v1.30.0
-	github.com/valyala/fasthttp v1.49.0
+	github.com/valyala/fasthttp v1.50.0
 )
 
 require (
