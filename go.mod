@@ -3,11 +3,11 @@ module github.com/ggymm/gopkg-fiber
 go 1.21
 
 require (
-	github.com/ggymm/gopkg v1.1.1
-	github.com/ggymm/gopkg-auth v1.0.2
+	github.com/ggymm/gopkg v1.1.2
+	github.com/ggymm/gopkg-auth v1.0.3
 	github.com/gofiber/fiber/v2 v2.49.2
 	github.com/pkg/errors v0.9.1
-	github.com/rs/zerolog v1.30.0
+	github.com/rs/zerolog v1.31.0
 	github.com/valyala/fasthttp v1.50.0
 )
 
@@ -31,7 +31,7 @@ require (
 	github.com/valyala/tcplisten v1.0.0 // indirect
 	github.com/xujiajun/mmap-go v1.0.1 // indirect
 	github.com/xujiajun/utils v0.0.0-20220904132955-5f7c5b914235 // indirect
-	golang.org/x/sys v0.12.0 // indirect
+	golang.org/x/sys v0.13.0 // indirect
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 )
 
