@@ -62,7 +62,10 @@ func Check(ctx *fiber.Ctx) (bool, error) {
 
 	// 从请求头中获取 token
 	if len(token) == 0 {
-		token = ctx.GetReqHeaders()[tokenName]
+		tokens := ctx.GetReqHeaders()[tokenName]
+		if len(tokens) > 0 {
+			token = tokens[0]
+		}
 	}
 
 	// 从 cookie 中获取 token
@@ -84,7 +87,10 @@ func GetSession(ctx *fiber.Ctx) (interface{}, error) {
 
 	// 从请求头中获取 token
 	if len(token) == 0 {
-		token = ctx.GetReqHeaders()[tokenName]
+		tokens := ctx.GetReqHeaders()[tokenName]
+		if len(tokens) > 0 {
+			token = tokens[0]
+		}
 	}
 
 	// 从 cookie 中获取 token
